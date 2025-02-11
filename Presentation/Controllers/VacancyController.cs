@@ -18,8 +18,23 @@ namespace Presentation.Controllers
         {
             _vacancyService = vacancyService;
         }
+        #region Documentation
+        /// <summary>
+        /// Get all vacancies
+        /// </summary>
+        /// <returns>List of all vacancies</returns>
+        #endregion
+       
+        [ProducesResponseType(typeof(Response<List<VacancyDto>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
         [HttpGet]
         public async Task<Response<List<VacancyDto>>> GetAllVacanciesAsync()
-        =>await _vacancyService.GetAllVacanciesAsync();
+        {
+          
+
+           return await _vacancyService.GetAllVacanciesAsync(); 
+        }
     }
 }

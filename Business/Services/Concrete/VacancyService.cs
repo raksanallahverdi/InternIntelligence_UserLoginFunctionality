@@ -28,6 +28,7 @@ namespace Business.Services.Concrete
 
         public async Task<Response<List<VacancyDto>>> GetAllVacanciesAsync()
         {            
+
                 return new Response<List<VacancyDto>>
                 {
                     Data = _mapper.Map<List<VacancyDto>>(await _vacancyRepository.GetAllAsync())
